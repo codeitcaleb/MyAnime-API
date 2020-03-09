@@ -1,1 +1,0 @@
-# MyAnimeCal-v2
