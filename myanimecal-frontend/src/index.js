@@ -6,6 +6,9 @@ import thunk from 'redux-thunk'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import AnimeCalendarContainer from './containers/AnimeCalendarContainer';
 
 const store = createStore(
 
@@ -15,7 +18,11 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Navbar />
+      <Route exact path="/" component={App} />
+      <Route exact path="/calendar" component={AnimeCalendarContainer} />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
@@ -24,3 +31,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
