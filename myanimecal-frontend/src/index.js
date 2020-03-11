@@ -22,6 +22,7 @@ ReactDOM.render(
       <Navbar />
       <Route exact path="/" component={App} />
       <Route exact path="/calendar" component={AnimeCalendarContainer} />
+      {/* <Route exact path="/" component={MyAnime} /> */}
     </Router>
   </Provider>,
   document.getElementById("root")
