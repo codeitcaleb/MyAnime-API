@@ -3,40 +3,46 @@ import AnimeDayContainer from './AnimeDayContainer'
 
 class AnimeCalendarContainer extends Component {
   state = {
-    days: []
-  }
-  
+    // days: [],
+    "sunday": [],
+    "monday": [],
+    "tuesday": [],
+    "wednesday": [],
+    "thursday": [],
+    "friday": [],
+    "saturday": []
+  };
+
   componentDidMount() {
-    this.fetchAnimeByDay()
+    this.fetchAnimeByDay();
   }
 
   componentDidUpdate(prevState) {
     if (this.state.days === prevState.days) {
-      return true
+      return true;
     }
   }
-  
-  fetchAnimeByDay = () => {
-    const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 
+  fetchAnimeByDay = () => {
+    let days = Object.keys(this.state);
+  
     fetch(`https://api.jikan.moe/v3/schedule`)
-    .then(response => response.json())
-    .then(object => {
-      // animeDays will be the props for the <AnimeDayContainer /> component
-      const animeDays = days.map(day => {
-        console.log(object[day])
-        return object[day]
-      })
-      
-      this.setState({
-        days: animeDays
-      })
-    })
+      .then(response => response.json())
+      .then(object => {
+        // animeDays will be the props for the <AnimeDayContainer /> component
+        days.map(day => {
+          console.log(object[day]);
+          this.setState({
+            [day]: object[day]
+          })
+        });
+      });
   }
+
   render() {
     return (
       <div>
-        <AnimeDayContainer animeDays={this.state.days} />
+        <AnimeDayContainer animeDays={this.state} />
       </div>
     );
   }

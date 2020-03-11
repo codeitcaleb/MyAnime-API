@@ -1,8 +1,9 @@
 import React from 'react'
 import AnimeList from './AnimeList'
-const AnimeDay = ({anime}) => {
+const AnimeDay = ({day, anime}) => {
   return (
     <div>
+      <h2>{day}</h2>
       <AnimeList anime={anime} />
     </div>
   )

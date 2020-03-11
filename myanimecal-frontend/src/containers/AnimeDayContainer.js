@@ -2,10 +2,12 @@ import React from 'react'
 import AnimeDay from '../components/AnimeDay'
 
 const AnimeDayContainer = ({animeDays}) => {
-  const daysList = animeDays.map(day => {
-    return <AnimeDay anime={day} />;
-  });
+  let days = Object.keys(animeDays);
 
+  const daysList = days.map(day => {
+    return <AnimeDay day={day} anime={animeDays[day]} />;
+  });
+  
   return (
     <div>
       {daysList}
