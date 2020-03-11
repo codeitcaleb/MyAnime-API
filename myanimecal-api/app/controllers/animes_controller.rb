@@ -1,7 +1,7 @@
 class AnimesController < ApplicationController
   before_action :set_anime, only: [:show, :update, :destroy]
   before_action :set_user
-  
+
   def index
     @animes = Anime.all
     render json: @animes
@@ -13,6 +13,7 @@ class AnimesController < ApplicationController
 
   def create
     @anime = Anime.new(anime_params)
+    byebug
 
     if @anime.save
       render json: @anime

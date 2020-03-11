@@ -6,9 +6,10 @@ import thunk from 'redux-thunk'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AnimeCalendarContainer from './containers/AnimeCalendarContainer';
+import AnimeShow from './containers/AnimeShow';
 
 const store = createStore(
 
@@ -20,9 +21,11 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Navbar />
-      <Route exact path="/" component={App} />
-      <Route exact path="/calendar" component={AnimeCalendarContainer} />
-      {/* <Route exact path="/" component={MyAnime} /> */}
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route exact path="/calendar" component={AnimeCalendarContainer} />
+        <Route exact path="/anime/:mal_id" component={AnimeShow} />
+      </Switch>
     </Router>
   </Provider>,
   document.getElementById("root")

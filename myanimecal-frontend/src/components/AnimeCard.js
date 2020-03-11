@@ -1,5 +1,5 @@
 import React from 'react'
-// import '../card.scss'
+import { Link } from 'react-router-dom'
 const AnimeCard = ({anime}) => {
   return (
     <div>
@@ -7,11 +7,15 @@ const AnimeCard = ({anime}) => {
         <img src={anime.image_url} />
         <h3>{anime.title}</h3>
         <p>{anime.synopsis}</p>
-        <p>{anime.score}</p>
-        {/* {anime.url}  <p>For more info about this anime.</p> */}
+        <Link to={{
+          pathname: `/anime/${anime.mal_id}`,
+          state: {
+            anime
+          }
+          }} >{anime.url}</Link> 
       </li>
     </div>
-  );  
+  );
 }
 
 export default AnimeCard
