@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { UseHistory } from 'react-router-dom'
 import AnimeSearchBar from '../components/AnimeSearchBar'
 import AnimeList from '../components/AnimeList'
 
@@ -7,7 +8,7 @@ class AnimeSearchBarContainer extends Component {
   state = {
     animes: [],
     query: '',
-
+    showResults: false
   }
 
   componentDidUpdate(prevState) {
@@ -25,9 +26,6 @@ class AnimeSearchBarContainer extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    this.setState({
-      query: event.target.value
-    })
     this.fetchAnime(this.state.query)
   }
 
@@ -49,9 +47,7 @@ class AnimeSearchBarContainer extends Component {
           handleChange={this.handleOnChange}
           handleSubmit={this.handleOnSubmit}
         />
-        <AnimeList 
-          anime={this.state.animes}
-        />
+        <AnimeList anime={this.state.animes} /> 
       </div>
     )
   }

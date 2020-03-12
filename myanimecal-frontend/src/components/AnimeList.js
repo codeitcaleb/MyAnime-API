@@ -1,6 +1,7 @@
 import React from 'react'
 import AnimeCard from './AnimeCard'
 const AnimeList = ({anime}) => {
+  
   return (
     <div>
       <ul>

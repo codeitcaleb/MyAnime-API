@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from "redux-devtools-extension";
-import animeReducer from './redux/reducers/animeReducer'
+import rootReducer from "./redux/reducers";
 import './index.css';
 import Root from "./Root";
 import * as serviceWorker from './serviceWorker';
 
+
 const store = createStore(
-  animeReducer,
+  rootReducer,
   composeWithDevTools(
     applyMiddleware(thunk)
   )

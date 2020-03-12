@@ -1,4 +1,4 @@
-export default function manageAnime(state = {
+export default function animeReducer(state = {
   anime: [], loading: false, }, action
 ) {
   console.log(action)

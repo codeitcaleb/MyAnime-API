@@ -11,3 +11,15 @@
     </div>
   </div>
 </div>;
+
+<Route
+  exact
+  path="/searchresults"
+  render={props => <AnimeResults {...props} />}
+/>;
+
+  console.log(this.props);
+  this.props.history.push({
+    pathname: "/searchresults",
+    state: this.state.animes
+  });

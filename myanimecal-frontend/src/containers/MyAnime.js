@@ -48,7 +48,8 @@ class MyAnime extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    anime: state.anime
+    anime: state.animeReducer.anime,
+    reviews: state.reviewReducer.reviews
   }
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const MyAnimeCard = ({ anime }) => {
+import { MyAnimeForm } from "./MyAnimeForm";
+const MyAnimeCard = ({ anime, handleChange, handleSubmit }) => {
   return (
     <div id={anime.id}>
       <li>
@@ -10,6 +11,8 @@ const MyAnimeCard = ({ anime }) => {
         <button onClick={() => this.handleOnDelete(anime.id)}>
           Remove from List
         </button>
+        <MyAnimeForm handleChange={handleChange} handleSubmit={handleSubmit} />
+        {/* Write a MyAnimeReviews component  that renders the reviews for an anime */}
       </li>
     </div>
   );
