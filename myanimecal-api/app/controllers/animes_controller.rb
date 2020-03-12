@@ -13,7 +13,6 @@ class AnimesController < ApplicationController
 
   def create
     @anime = Anime.new(anime_params)
-    byebug
 
     if @anime.save
       render json: @anime
@@ -27,6 +26,7 @@ class AnimesController < ApplicationController
   end
 
   def destroy
+    byebug
     @anime.destroy
   end
 
@@ -41,6 +41,6 @@ class AnimesController < ApplicationController
   end
 
   def anime_params
-    params.require(:anime).permit(:title, :synopsis, :image_url, :day)
+    params.require(:anime).permit(:id, :title, :synopsis, :image_url)
   end
 end

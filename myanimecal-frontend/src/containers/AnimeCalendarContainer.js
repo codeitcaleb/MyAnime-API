@@ -26,12 +26,11 @@ class AnimeCalendarContainer extends Component {
   fetchAnimeByDay = () => {
     let days = Object.keys(this.state);
   
-    fetch(`https://api.jikan.moe/v3/schedule`)
+    fetch('https://api.jikan.moe/v3/schedule')
       .then(response => response.json())
       .then(object => {
         // animeDays will be the props for the <AnimeDayContainer /> component
         days.map(day => {
-          console.log(object[day]);
           this.setState({
             [day]: object[day]
           })

@@ -18,6 +18,9 @@ const Navbar = () => {
       <NavLink to="/calendar" exact style={link}>
         Calendar
       </NavLink>
+      <NavLink to="/myanime" exact style={link}>
+        MyAnime
+      </NavLink>
     </div>
   );
 }

@@ -1,33 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from "redux-devtools-extension";
+import animeReducer from './redux/reducers/animeReducer'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import AnimeCalendarContainer from './containers/AnimeCalendarContainer';
-import AnimeShow from './containers/AnimeShow';
+import Root from './Root'
+
 
 const store = createStore(
-
-  applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  animeReducer,
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  )
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route exact path="/calendar" component={AnimeCalendarContainer} />
-        <Route exact path="/anime/:mal_id" component={AnimeShow} />
-      </Switch>
-    </Router>
-  </Provider>,
+ <Root store={store} />,
   document.getElementById("root")
 );
 

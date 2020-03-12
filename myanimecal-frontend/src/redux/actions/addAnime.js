@@ -1,3 +1,14 @@
+export const getAnime = () => {
+  return dispatch => {
+    dispatch({ type: "START_ADDING_ANIME" });
+    fetch("http://localhost:3001/api/animes")
+      .then(response => response.json())
+      .then(data => {
+        return dispatch({ type: "ADD_ANIME", anime: data });
+      });
+  };
+};
+
 export function addAnime(anime) {
   return dispatch => {
     dispatch({ type: "START_ADDING_ANIME" });
@@ -9,6 +20,21 @@ export function addAnime(anime) {
       body: JSON.stringify(anime)
     })
       .then(response => response.json())
-      .then(data => dispatch({ type: "ADD_ANIME", anime: data }));
+      .then(data => {
+        debugger
+        return dispatch({ type: "ADD_ANIME", anime: data })});
+  };
+}
+
+export function deleteAnime(anime) {
+  return dispatch => {
+    dispatch({ type: "START_ADDING_ANIME" });
+    fetch("http://localhost:3001/api/animes", {
+      method: "DELETE",
+    })
+      .then(response => response.json())
+      .then(data => {
+        return dispatch({ type: "DELETE_ANIME", anime: data });
+      });
   };
 }

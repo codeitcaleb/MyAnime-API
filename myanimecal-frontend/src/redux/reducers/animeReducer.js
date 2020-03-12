@@ -9,14 +9,17 @@ export default function manageAnime(state = {
       loading: true
       }
     case 'ADD_ANIME':
-
       return {
         ...state,
-         anime: [...state.anime, action.anime],
+         anime: [...action.anime],
          loading: false
       }
     case 'DELETE_ANIME':
-
+      return {
+        ...state,
+        anime: state.anime.filter(anime => anime.id !== action.anime.id ),
+        loading: false
+      }
 
     default:  
       return state
