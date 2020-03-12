@@ -5,10 +5,8 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from "redux-devtools-extension";
 import animeReducer from './redux/reducers/animeReducer'
 import './index.css';
-import App from './App';
+import Root from "./Root";
 import * as serviceWorker from './serviceWorker';
-import Root from './Root'
-
 
 const store = createStore(
   animeReducer,
@@ -18,7 +16,7 @@ const store = createStore(
 );
 
 ReactDOM.render(
- <Root store={store} />,
+  <Root store={store} />,
   document.getElementById("root")
 );
 

@@ -24,17 +24,17 @@ export function addAnime(anime) {
         debugger
         return dispatch({ type: "ADD_ANIME", anime: data })});
   };
-}
+};
 
-export function deleteAnime(anime) {
+export function deleteAnime(id) {
   return dispatch => {
     dispatch({ type: "START_ADDING_ANIME" });
-    fetch("http://localhost:3001/api/animes", {
+    fetch(`http://localhost:3001/api/animes/${id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
     })
-      .then(response => response.json())
-      .then(data => {
-        return dispatch({ type: "DELETE_ANIME", anime: data });
-      });
+      .then( dispatch({ type: "DELETE_ANIME", id}));
   };
 }

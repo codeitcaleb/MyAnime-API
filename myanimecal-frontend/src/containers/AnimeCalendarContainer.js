@@ -3,7 +3,6 @@ import AnimeDayContainer from './AnimeDayContainer'
 
 class AnimeCalendarContainer extends Component {
   state = {
-    // days: [],
     "sunday": [],
     "monday": [],
     "tuesday": [],
@@ -29,12 +28,11 @@ class AnimeCalendarContainer extends Component {
     fetch('https://api.jikan.moe/v3/schedule')
       .then(response => response.json())
       .then(object => {
-        // animeDays will be the props for the <AnimeDayContainer /> component
-        days.map(day => {
+        days.map(day => (
           this.setState({
             [day]: object[day]
           })
-        });
+        ));
       });
   }
 

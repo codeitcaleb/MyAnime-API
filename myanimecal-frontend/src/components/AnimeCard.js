@@ -12,7 +12,7 @@ const AnimeCard = ({anime}) => {
           state: {
             anime
           }
-          }} >{anime.url}</Link> 
+          }} >View Anime</Link> 
       </li>
     </div>
   );

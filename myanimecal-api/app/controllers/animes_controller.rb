@@ -26,7 +26,6 @@ class AnimesController < ApplicationController
   end
 
   def destroy
-    byebug
     @anime.destroy
   end
 

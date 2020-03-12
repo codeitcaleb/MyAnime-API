@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { addAnime } from '../redux/actions/addAnime'
+import { addAnime } from '../redux/actions/animeActions'
 class AnimeShow extends Component {
 
   handleOnClick = (anime) => {
@@ -13,7 +13,7 @@ class AnimeShow extends Component {
     return (
       <div>
         <li>
-          <img src={anime.image_url} />
+          <img src={anime.image_url} alt={anime.title} />
           <h3>{anime.title}</h3>
           <p>{anime.synopsis}</p>
           <button onClick={() => this.handleOnClick(anime)} >Add to List</button>
