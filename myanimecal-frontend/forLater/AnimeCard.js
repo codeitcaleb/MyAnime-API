@@ -18,8 +18,18 @@
   render={props => <AnimeResults {...props} />}
 />;
 
-  console.log(this.props);
-  this.props.history.push({
-    pathname: "/searchresults",
-    state: this.state.animes
-  });
+   // console.log(this.props);
+    // this.props.history.push({
+    //   pathname: "/search
+    // });
+
+      {
+        /* <Route
+          exact
+          path="/searchresults"
+          render={props => <AnimeResults {...props} />}
+        /> */
+      }
+      {
+        /* ; */
+      }
