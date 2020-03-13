@@ -3,27 +3,33 @@ export default function animeReducer(state = {
 ) {
   console.log(action)
   switch (action.type) {
-    case "START_ADDING_ANIME":
-      return {...state,
-      anime: [...state.anime],
-      loading: true
-      }
+    case "LOADING_ANIME":
+      return { 
+        ...state, 
+        loading: true 
+      };
 
-    case 'ADD_ANIME':
+    case "GET_ALL_ANIME":
       return {
         ...state,
-         anime: [...action.anime],
-         loading: false
-      }
-    case 'DELETE_ANIME':
-      
-      return {
-        ...state,
-        anime: state.anime.filter(anime => anime.id !== action.id ),
+        anime: action.anime,
         loading: false
-      }
+      };
 
-    default:  
-      return state
+    case "ADD_ANIME":
+      return {
+        ...state,
+        anime: [...state.anime, action.anime],
+        loading: false
+      };
+    case "DELETE_ANIME":
+      return {
+        ...state,
+        anime: state.anime.filter(anime => anime.id !== action.id),
+        loading: false
+      };
+
+    default:
+      return state;
   }
 }
