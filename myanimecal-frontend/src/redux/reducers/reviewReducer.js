@@ -7,7 +7,7 @@ export default function reviewsReducer(
 ) {
   console.log(action);
   switch (action.type) {
-    case "START_ADDING_REVIEW":
+    case "LOADING_REVIEWS":
       return { ...state, reviews: [...state.reviews], loading: true };
 
     case "ADD_REVIEW":
