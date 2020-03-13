@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { UseHistory } from 'react-router-dom'
 import AnimeSearchBar from '../components/AnimeSearchBar'
 import AnimeList from '../components/AnimeList'
 
@@ -7,8 +6,7 @@ const URL = "https://api.jikan.moe/v3/search/anime?q=";
 class AnimeSearchBarContainer extends Component {
   state = {
     animes: [],
-    query: '',
-    showResults: false
+    query: ''
   }
 
   componentDidUpdate(prevState) {
@@ -33,7 +31,6 @@ class AnimeSearchBarContainer extends Component {
     fetch(URL + query)
     .then(response => response.json())
     .then(anime => {
-      console.log(anime.results)
       this.setState({
         animes: anime.results
       })

@@ -25,7 +25,7 @@ export default function animeReducer(state = {
     case "DELETE_ANIME":
       return {
         ...state,
-        anime: state.anime.filter(anime => anime.id !== action.id),
+        anime: state.anime.filter(a => a.id !== action.id),
         loading: false
       };
 

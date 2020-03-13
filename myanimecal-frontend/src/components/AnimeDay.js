@@ -4,7 +4,7 @@ const AnimeDay = ({day, anime}) => {
   return (
     <div>
       <h2>{day}</h2>
-      {/* <AnimeList anime={anime} /> */}
+      <AnimeList anime={anime} />
     </div>
   )
 }

@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addAnime } from '../redux/actions/animeActions'
-class AnimeShow extends Component {
 
+class AnimeShow extends Component {
+  
   handleOnClick = (anime) => {
-    this.props.addAnime(anime)
+    this.props.addAnime(anime);
+    this.props.history.push('/myanime')
   }
 
+
   render() {
-    let anime = this.props.location.state.anime;
-    
+    const anime = this.props.location.state.anime
+
     return (
       <div>
         <li>
@@ -22,5 +25,6 @@ class AnimeShow extends Component {
     );
   }
 }
+
 
 export default connect(null, { addAnime })(AnimeShow);

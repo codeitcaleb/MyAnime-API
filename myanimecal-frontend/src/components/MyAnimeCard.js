@@ -1,18 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MyAnimeForm } from "./MyAnimeForm";
-const MyAnimeCard = ({ anime, handleChange, handleSubmit }) => {
+const MyAnimeCard = ({ anime }) => {
+
   return (
-    <div id={anime.id}>
+    <div>
       <li>
-        <img src={anime.image_url} alt={anime.title} />
-        <h3>{anime.title}</h3>
+        <img src={anime.image_url} alt={`${anime.title}`} />
+        <h3>
+          <Link
+            to={{
+              pathname: `/myanime/${anime.id}`,
+              state: { anime }
+            }}
+          >
+            {anime.title}
+          </Link>
+        </h3>
         <p>{anime.synopsis}</p>
-        <button onClick={() => this.handleOnDelete(anime.id)}>
-          Remove from List
-        </button>
-        <MyAnimeForm handleChange={handleChange} handleSubmit={handleSubmit} />
-        {/* Write a MyAnimeReviews component  that renders the reviews for an anime */}
       </li>
     </div>
   );

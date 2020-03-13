@@ -1,12 +1,11 @@
 import React from 'react'
 import AnimeCard from './AnimeCard'
 const AnimeList = ({anime}) => {
-  
   return (
     <div>
       <ul>
         {anime.map(anime => (
-          <AnimeCard anime={anime} />
+          <AnimeCard key={anime.id} anime={anime} />
         ))}
       </ul>
     </div>
