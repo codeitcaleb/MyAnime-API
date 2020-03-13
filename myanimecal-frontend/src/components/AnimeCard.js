@@ -9,9 +9,7 @@ const AnimeCard = ({anime}) => {
           <Link
             to={{
               pathname: `/anime/${anime.mal_id}`,
-              state: {
-                anime
-              }
+              state: { anime }
             }}
           >
             {anime.title}
