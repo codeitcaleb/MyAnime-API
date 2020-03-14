@@ -7,12 +7,12 @@ import rootReducer from "./redux/reducers";
 import './index.css';
 import Root from "./Root";
 import * as serviceWorker from './serviceWorker';
-
+import logger from 'redux-logger'
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, logger)
   )
 );
 

@@ -7,27 +7,27 @@ import { deleteAnime } from '../redux/actions/animeActions'
 
 class MyAnimeShow extends Component {
 
-  handleDelete =(e) => {
-    this.props.deleteAnime(e.target.id)
+  handleDelete =(id) => {
+    this.props.deleteAnime(id)
     this.props.history.push("/myanime")
   }
   render() {
-     const anime = this.props.location.state.anime;
+    const anime = this.props.location.state.anime;
   
-  return (
-    <div>
-      <li>
-        <img src={anime.image_url} alt={`${anime.title}`} />
-        <h3>{anime.title}</h3>
-        <p>{anime.synopsis}</p>
-        <button id={anime.id} onClick={this.handleDelete}>
-          Remove from List
-        </button>
-        {/* <MyAnimeForm handleChange={handleChange} handleSubmit={handleSubmit} /> */}
-        {/* Write a MyAnimeReviews component  that renders the reviews for an anime */}
-      </li>
-    </div>
-  );
+    return (
+      <div>
+        <li>
+          <img src={anime.image_url} alt={`${anime.title}`} />
+          <h3>{anime.title}</h3>
+          <p>{anime.synopsis}</p>
+          <button onClick={() => this.handleDelete(anime.id)}>
+            Remove from List
+          </button>
+          {/* <MyAnimeForm handleChange={handleChange} handleSubmit={handleSubmit} /> */}
+          {/* Write a MyAnimeReviews component  that renders the reviews for an anime */}
+        </li>
+      </div>
+    );
   }
 }
 

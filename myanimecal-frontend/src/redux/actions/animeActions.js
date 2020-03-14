@@ -34,6 +34,6 @@ export function deleteAnime(id) {
         "Content-Type": "application/json"
       }
     })
-      .then( dispatch({ type: "DELETE_ANIME", id}));
+      .then(() => dispatch({ type: "DELETE_ANIME", id}));
   };
 }

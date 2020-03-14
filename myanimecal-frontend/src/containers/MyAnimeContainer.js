@@ -19,13 +19,9 @@ class MyAnime extends Component {
     this.props.addReview(this.state)
   }
 
-  componentDidUpdate(prevProps) {
-    
-    console.log(this.props)
-    if (prevProps.animes.length === 0 ) { 
-      this.props.getAnime();
-    }
-  }
+  // componentDidMount() {
+  //     this.props.getAnime();
+  // }
 
   handleOnDelete = (id) => {
     this.props.deleteAnime(id)

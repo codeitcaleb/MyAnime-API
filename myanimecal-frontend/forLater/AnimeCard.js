@@ -33,3 +33,18 @@
       {
         /* ; */
       }
+
+        {
+          /* <Link
+              to={{
+                pathname: `/anime/${anime.mal_id}`,
+                state: { anime }
+              }} */
+        }
+        {
+          /* > */
+        }
+
+         {
+           /* </Link> */
+         }

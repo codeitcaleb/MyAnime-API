@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import AnimeSearchBarContainer from './containers/AnimeSearchBarContainer'
+import { connect } from 'react-redux';
+import { getAnime } from './redux/actions/animeActions'
+
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getAnime()
+  }
 
   render() {
     return (
@@ -16,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { getAnime })(App);
