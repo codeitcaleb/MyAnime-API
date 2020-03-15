@@ -47,7 +47,6 @@ class MyAnime extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // debugger
   console.log(state.animeReducer.anime)
   return {
     animes: state.animeReducer.anime,
