@@ -7,13 +7,13 @@ import { deleteAnime } from '../redux/actions/animeActions'
 
 class MyAnimeShow extends Component {
 
-  handleDelete =(id) => {
-    this.props.deleteAnime(id)
-    this.props.history.push("/myanime")
-  }
+  handleDelete = id => {
+    this.props.deleteAnime(id);
+    this.props.history.push("/myanime");
+  };
   render() {
     const anime = this.props.location.state.anime;
-  
+    console.log(anime.id);
     return (
       <div>
         <li>
@@ -23,6 +23,7 @@ class MyAnimeShow extends Component {
           <button onClick={() => this.handleDelete(anime.id)}>
             Remove from List
           </button>
+
           {/* <MyAnimeForm handleChange={handleChange} handleSubmit={handleSubmit} /> */}
           {/* Write a MyAnimeReviews component  that renders the reviews for an anime */}
         </li>
@@ -31,5 +32,10 @@ class MyAnimeShow extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    myAnime: state.animeReducer.anime
+  };
+};
 
-export default connect(null, {deleteAnime} )(MyAnimeShow);
+export default connect(mapStateToProps, {deleteAnime} )(MyAnimeShow);

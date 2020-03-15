@@ -32,9 +32,9 @@ class MyAnime extends Component {
        <MyAnimeCard
           key={anime.id} 
           anime={anime} 
-          handleChange={this.handleOnChange} 
-          handleSubmit={this.handleOnSubmit} 
-          handleDelete={this.handleOnDelete}   
+          // handleChange={this.handleOnChange} 
+          // handleSubmit={this.handleOnSubmit} 
+          // handleDelete={this.handleOnDelete}   
       />
     ))
     

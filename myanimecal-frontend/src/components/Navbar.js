@@ -15,9 +15,9 @@ const Navbar = () => {
       <NavLink to="/" exact style={link}>
         Home
       </NavLink>
-      <NavLink to="/calendar" exact style={link}>
+      {/* <NavLink to="/calendar" exact style={link}>
         Calendar
-      </NavLink>
+      </NavLink> */}
       <NavLink to="/myanime" exact style={link}>
         MyAnime
       </NavLink>

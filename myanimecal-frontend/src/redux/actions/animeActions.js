@@ -10,6 +10,7 @@ export const getAnime = () => {
 };
 
 export function addAnime(anime) {
+  
   return dispatch => {
     dispatch({ type: "LOADING_ANIME" });
     fetch("http://localhost:3001/api/animes", {

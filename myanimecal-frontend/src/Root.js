@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import App from "./App";
 import MyAnime from './containers/MyAnimeContainer'
 import AnimeCalendarContainer from "./containers/AnimeCalendarContainer";
-import AnimeShow from "./containers/AnimeShow";
+import AnimeShow from "./components/AnimeShow";
 import MyAnimeShow from "./components/MyAnimeShow"
 
 const Root = ({ store }) => (
@@ -14,7 +14,7 @@ const Root = ({ store }) => (
       <Navbar />
       <Switch>
         <Route exact path="/" component={App} />
-        <Route exact path="/calendar" component={AnimeCalendarContainer} />
+        {/* <Route exact path="/calendar" component={AnimeCalendarContainer} /> */}
         <Route exact path="/myanime" component={MyAnime} />
         <Route exact path="/myanime/:id" component={MyAnimeShow} />
         <Route exact path="/anime/:mal_id" component={AnimeShow} />
