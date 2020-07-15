@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
             errors: ['no such user', 'verify credentials and try again or signup']
           }
         end
-      end
+    end
+
     def is_logged_in?
         if logged_in? && current_user
           render json: {
@@ -27,15 +28,18 @@ class SessionsController < ApplicationController
             message: 'no such user'
           }
         end
-      end
+    end
+
     def destroy
         logout!
         render json: {
           status: 200,
           logged_out: true
         }
-      end
+    end
+
     private
+    
     def session_params
         params.require(:user).permit(:username, :email, :password)
       end
